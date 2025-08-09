@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Aktivuj lokální venv, pokud existuje
+if [[ -x "jarvis_env/bin/activate" ]]; then
+  # shellcheck disable=SC1091
+  source jarvis_env/bin/activate
+fi
+
 cmd=${1:-help}
 
 case "$cmd" in
