@@ -1,0 +1,16 @@
+{
+    "files.hotExit": "off",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false,
+    // Use project venv
+    "python.defaultInterpreterPath": "/home/pipap/projects/myjarvis/jarvis_env/bin/python",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "information"
+    },
+    // Black on save for Python files
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    }
+}

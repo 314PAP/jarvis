@@ -28,3 +28,6 @@ models/*.onnx
 # OS/editor
 .DS_Store
 .vscode/
+# Allow committing workspace settings and recommendations
+!.vscode/settings.json
+!.vscode/extensions.json
