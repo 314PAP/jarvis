@@ -109,6 +109,12 @@ Více v docs/CONFIG.md
 ### Rychlé testy:
 - `./jarvis_env/bin/pytest -q`
 
+### Lint/format (pre-commit)
+- Jednorázově nainstalujte hooky:
+  - `pip install pre-commit && pre-commit install`
+- Spuštění na celé codebase:
+  - `pre-commit run --all-files`
+
 ### Monitoring:
 - Průběžné logování do `logs/jarvis.log`
 - Performance metriky v reálném čase
@@ -140,6 +146,9 @@ Více v docs/CONFIG.md
 - [ ] Piper jako výchozí TTS s CZ hlasem (model a config)
 - [ ] Lehčí režim LLM s menší spotřebou (n_ctx, max_tokens presety)
 - [ ] Plugin systém pro rozšíření akcí
+
+## 🔖 Release
+- Vytvořením tagu `vX.Y.Z` se spustí workflow, které proběhne testy a založí GitHub Release s poznámkami.
 
 ## 🤝 Přispívání
 
