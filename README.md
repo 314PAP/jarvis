@@ -1,5 +1,7 @@
 # MyJarvis - Český Hlasový Asistent
 
+![CI](https://github.com/314PAP/jarvis/actions/workflows/ci.yml/badge.svg)
+
 Plně funkční český hlasový asistent inspirovaný nejlepšími GitHub projekty. Navržen pro Kubuntu/KDE Plasma s důrazem na spolehlivost a českou lokalizaci.
 
 ## 🎯 Současné funkčnosti
