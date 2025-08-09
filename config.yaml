@@ -1,0 +1,63 @@
+# MyJarvis Proven Edition Configuration
+# Založeno na osvědčených GitHub řešeních
+
+# Audio konfigurace
+audio:
+  sample_rate: 16000        # Povinné pro Porcupine podle dokumentace
+  chunk_size: 2048          
+  channels: 1
+  device_index: null        # Automatická detekce
+  input_gain: 3.0           
+
+# Wake word detekce (Porcupine - váš custom model)
+wake_word:
+  service: "porcupine"                    # porcupine nebo openwakeword
+  access_key: "CmyAfGBdVMr5Lycr5YbH+LzEWIugNopLJAgNGxHLVY5pX8Qyja2weA=="  # Porcupine API key
+  model_path: "hello-bitch/hello-bitch_en_linux_v3_0_0.ppn"
+  keyword: "hello bitch"                  # váš custom wake word
+  threshold: 0.5                          # ZVÝŠENO - méně falešných pozitivních
+  chunk_size: 512                         # pro Porcupine
+
+# Speech-to-Text
+stt:
+  service: "whisper"        # whisper (openai-whisper/transformers) nebo google
+  language: "cs-CZ"         # čeština
+  model: "small"            # openai-whisper model
+  hf_model: "openai/whisper-small"  # fallback přes transformers
+  device: "auto"            # auto|cuda
+  timeout: 7                # čas na začátek řeči
+  phrase_timeout: 9         # delší okno pro větu
+  energy_threshold: 200     # méně falešných zachycení ticha
+  dynamic_energy_threshold: true  # adaptivní práh
+  pause_threshold: 0.8      # kratší pauza = svižnější ukončení věty
+  non_speaking_duration: 0.2  # filtr krátkých šumů
+
+# Language Model
+llm:
+  model_path: "models/Llama-3.2-1B-Instruct.Q5_K_M.gguf"
+  max_tokens: 200           # delší odpověď
+  temperature: 0.2          # méně halucinací
+  n_ctx: 2048              # velikost kontextu
+  n_threads: 4             # CPU vlákna
+  n_gpu_layers: 0          # GPU vrstvy (0 = CPU only)
+  top_p: 0.9
+  repeat_penalty: 1.1
+
+# Text-to-Speech
+tts:
+  service: "espeak"         # espeak, piper (budoucí)
+  voice: "cs"               # hlas pro espeak-ng/espeak
+  speed: 150                # rychlost (slova za minutu)
+  volume: 90                # hlasitost 0-200
+  pitch: 50                 # výška hlasu 0-99
+  gap: 10                   # mezera mezi slovy (ms/10)
+  sentence_pause_ms: 300    # pauza mezi větami při čtení (ms)
+  interrupt_words: ["stop", "konec", "ticho", "stačí"]
+  interrupt_enabled: true   # povolit přerušení během mluvení
+  interrupt_listen_timeout: 0.6   # s timeout krátkého naslouchání
+  interrupt_phrase_limit: 0.8     # max délka fráze pro přerušení
+
+# Debugging
+debug:
+  log_level: "INFO"         # DEBUG, INFO, WARNING, ERROR
+  log_conversations: true   # ukládání konverzací

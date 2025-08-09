@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual envs
+jarvis_env/
+.venv/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Large models (do not commit)
+models/*.gguf
+models/*.bin
+models/*.pth
+models/*.onnx
+
+# Caches
+.cache/
+.history/
+*.ipynb_checkpoints
+
+# OS/editor
+.DS_Store
+.vscode/
